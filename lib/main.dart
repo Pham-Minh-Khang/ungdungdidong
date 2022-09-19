@@ -5,16 +5,25 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'My Shop',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+       fontFamily: 'Lato',
+       colorScheme: ColorScheme.fromSwatch(
+           primarySwatch: Colors.purple,
+       ).copyWith(
+          secondary: Colors.deepOrange,
+        ),
+     
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Container(
+        color: Colors.green,
+      ),
     );
   }
 }
@@ -22,6 +31,7 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
+ 
   final String title;
 
   @override
@@ -33,18 +43,23 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _incrementCounter() {
     setState(() {
+
       _counter++;
     });
   }
 
   @override
   Widget build(BuildContext context) {
+ 
     return Scaffold(
       appBar: AppBar(
+  
         title: Text(widget.title),
       ),
       body: Center(
+ 
         child: Column(
+      
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
